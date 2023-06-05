@@ -49,9 +49,9 @@ async function registerProduct(product: ProductInputtableTypes): Promise<Service
   return { status: 'SUCCESSFUL', data: newProduct.dataValues };
 }
 
-async function getProducts(): Promise<ProductSequelizeModel[]> {
+async function getProducts(): Promise<ServiceResponse<ProductSequelizeModel[]>> {
   const products = await ProductModel.findAll();
-  return products;
+  return { status: 'SUCCESSFUL', data: products };
 }
 
 export default {
